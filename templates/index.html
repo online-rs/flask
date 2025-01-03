@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advogada Virtual</title>
+</head>
+<body>
+    <h1>Advogada Virtual</h1>
+    <form method="POST" enctype="multipart/form-data" id="upload-form">
+        <input type="file" name="file" id="file-input">
+        <input type="submit" value="Upload">
+    </form>
+    <div id="chat-history"></div>
+    <input type="text" id="user-message">
+    <button onclick="sendMessage()">Enviar</button>
+
+    <script>
+        function sendMessage() {
+            var userMessage = document.getElementById("user-message").value;
+            fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams({
+                    'user_message': userMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("chat-history").innerHTML += "Você: " + userMessage + "<br>";
+                document.getElementById("chat-history").innerHTML += "Advogada Virtual Alice: " + data.response + "<br>";
+                document.getElementById("user-message").value = "";
+            });
+        }
+
+        document.getElementById("upload-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var fileInput = document.getElementById("file-input");
+            var file = fileInput.files[0];
+            var formData = new FormData();
+            formData.append("file", file);
+            fetch("/upload", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message || data.error);
+            });
+        });
+    </script>
+</body>
+</html>
