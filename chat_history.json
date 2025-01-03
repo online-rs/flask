@@ -2,37 +2,25 @@
     {
         "role": "user",
         "parts": [
-            "Oi"
+            "oi"
         ]
     },
     {
         "role": "model",
         "parts": [
-            "Olá! Sou Alice, sua assistente jurídica virtual. Para iniciarmos, poderia me informar seu nome completo? Fique tranquilo(a), todas as informações compartilhadas serão tratadas com total confidencialidade.\n"
+            "Olá! Sou Alice, sua assistente jurídica virtual. Para iniciarmos, poderia me informar seu nome completo?\n"
         ]
     },
     {
         "role": "user",
         "parts": [
-            "Sim"
+            "Bruno de OLiveira"
         ]
     },
     {
         "role": "model",
         "parts": [
-            "Obrigada! Para que eu possa te ajudar da melhor forma, poderia me informar seu nome completo, por favor? 😊\n"
-        ]
-    },
-    {
-        "role": "user",
-        "parts": [
-            "não"
-        ]
-    },
-    {
-        "role": "model",
-        "parts": [
-            "Entendo. Para que eu possa prosseguir com seu atendimento, preciso do seu nome completo. Todas as informações que você compartilhar serão tratadas com total confidencialidade. 😊\n"
+            "Obrigado, Bruno. É um prazer te atender. Todas as informações que você me fornecer serão tratadas com total confidencialidade.\n\nPoderia descrever a situação que o traz até nós?\n"
         ]
     }
 ]
